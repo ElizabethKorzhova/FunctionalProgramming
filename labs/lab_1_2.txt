@@ -1,0 +1,12 @@
+(define (log10 n) (/ (log n) (log 10)))
+
+(define (reverse num)
+    (define (reverse-times num acc)
+        (if (= num 0)
+        acc
+        (reverse-times (quotient num 10) (+ (* (modulo num 10) (expt 10 (floor->exact (log10 num)))) acc))))
+    (reverse-times num 0))
+
+(display (reverse 132433))
+(display "\n")
+(display (reverse 179))

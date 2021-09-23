@@ -1,0 +1,21 @@
+(define (factorial n)
+    (define (factorial-times n acc)
+        (if (= n 0)
+            acc
+            (factorial-times (- n 1) (* n acc))))
+    (if (< n 0)
+        (display "Incorrect parameter n\n")
+        (begin
+            (display "Recursion depth: ")
+            (display n)
+            (newline)
+            (factorial-times n 1))))
+
+(define (A k n) (/ (factorial n) (factorial (- n k))))
+(define (C k n) (/ (factorial n) (factorial k) (factorial (- n k))))
+
+
+(display "TASK 1\n")
+(display (C 2 5))
+(display "\nTASK 2\n")
+(display (* 3 (C 4 10)))

@@ -1,0 +1,150 @@
+* {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.headerLogo {
+  height: 60px;
+  width: 60px;
+}
+
+.aboutFacultySection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 74vh;
+}
+
+.facultyDescription {
+  text-align: center;
+  padding-bottom: 40px;
+  line-height: 30px;
+}
+
+.facultyTitle {
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.facultySpan {
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.facultyTitle::after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 4px;
+  border-radius: 6px;
+  width: 150px;
+  background-color: #e4201c;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aboutStudentSection {
+  padding-top: 100px;
+  height: 92vh;
+}
+
+.studentInfoWrapper {
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.personalityPhoto {
+  width: 260px;
+  height: 260px;
+  border-radius: 180px;
+}
+
+.studentWrapper {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.studentInfoWrapper {
+  width: 260px;
+}
+
+.studentInfo {
+  padding: 20px;
+  text-align: center;
+}
+
+.studentName {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.studentSpan {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.studentDescription {
+  font-size: 14px;
+}
+
+.labsSection {
+  height: 90vh;
+}
+
+.labListItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  text-align: center;
+  border: 1px solid #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.labList {
+  padding-top: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.labTitle {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.labTheme {
+  font-size: 14px;
+}
+
+.labListItem:hover {
+  border: 1px solid #e4201c;
+  border-radius: 6px;
+}
