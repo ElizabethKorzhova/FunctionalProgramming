@@ -1,21 +1,21 @@
-(define (factorial n)
-    (define (factorial-times n acc)
-        (if (= n 0)
-            acc
-            (factorial-times (- n 1) (* n acc))))
-    (if (< n 0)
-        (display "Incorrect parameter n\n")
-        (begin
+(define (factorial n) ; Визначаємо функцію factorial
+    (define (factorial-times n acc) ; Визначаємо допоміжну функцію factorial-times, для того, щоб використовувати хвоствову рекурсію
+        (if (= n 0) ; Якщо поточне число n - нуль
+            acc ; повернути аккумулятор
+            (factorial-times (- n 1) (* n acc)))) ; інакше, визвати рекурсивно цю функцию, передавши n на єдиницю меншим, а асс помноживши на поточне n
+    (if (< n 0) ; Якщо n менший за нуль
+        (display "Incorrect parameter n\n") ; то не будемо нічого викликати та повертати, просто виведемо в консоль, що параметр не вірний
+        (begin ; початок багатострокового коду
             (display "Recursion depth: ")
             (display n)
             (newline)
-            (factorial-times n 1))))
+            (factorial-times n 1)))) ; перший виклик хвостової рекурсії
 
-(define (A k n) (/ (factorial n) (factorial (- n k))))
-(define (C k n) (/ (factorial n) (factorial k) (factorial (- n k))))
+(define (A k n) (/ (factorial n) (factorial (- n k)))) ; функція для знаходження кількості розміщень (за формулою)
+(define (C k n) (/ (factorial n) (factorial k) (factorial (- n k)))) ; функція для знаходження кількості сполучень (за формулою)
 
 
 (display "TASK 1\n")
-(display (C 2 5))
+(display (C 2 5)) ; розподіл двох завданнь між 5 членами коміссії
 (display "\nTASK 2\n")
-(display (* 3 (C 4 10)))
+(display (* 3 (C 4 10))) ; розподіл уроків в 10 класах між 3 вчителями, якщо кожен вчитель викладатиме у 4 класах

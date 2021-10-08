@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 
 const Home = () => {
   return (
-    <div className={"container"}>
+    <div className={`container ${styles.homeContainer}`}>
       <header className={styles.header}>
         <img src={LogoKNU} alt="Logo of KNU" className={styles.headerLogo} />
         <div>Київський національний університет імені Тараса Шевченка</div>
@@ -63,7 +63,7 @@ const Home = () => {
           <h2 className={styles.facultyTitle}>Лабораторні роботи</h2>
           <ul className={styles.labList}>
             <li className={styles.labListItem}>
-              <Link to="/hw1">
+              <Link to="/lab1">
                 <div>
                   <span className={styles.labTitle}>Лабораторна робота 1</span>
                   <div className={styles.labTheme}>
@@ -74,7 +74,7 @@ const Home = () => {
               </Link>
             </li>
             <li className={styles.labListItem}>
-              <Link to="/hw2">
+              <Link to="/lab2">
                 <div>
                   <span className={styles.labTitle}>Лабораторна робота 2</span>
                   <div className={styles.labTheme}>

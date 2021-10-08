@@ -1,12 +1,14 @@
-(define (log10 n) (/ (log n) (log 10)))
+(define (log10 n) (/ (log n) (log 10))) ; визначення функції для знаходження десяткового логарифму
 
-(define (reverse num)
-    (define (reverse-times num acc)
-        (if (= num 0)
-        acc
-        (reverse-times (quotient num 10) (+ (* (modulo num 10) (expt 10 (floor->exact (log10 num)))) acc))))
-    (reverse-times num 0))
+(define (reverse num) ; визначення функції для перевертання числа
+    (define (reverse-times num acc) ; визначення функції для використання хвостової рекурсії
+        (if (= num 0) ; якщо поточне число 0
+        acc ; повернути аккумулятор
+        (reverse-times ; рекурсивно визнати цю функції, передавши
+        	(quotient num 10) ; в num цілу частину від ділення поточного num на 10
+        	(+ (* (modulo num 10) (expt 10 (floor->exact (log10 num)))) acc)))) ; в acc поточний acc, додавши до нього останню цифру поточного числа домножену на 10 в такій степені, щоб довжина отриманного числа дорівлювала довжині поточного
+    (reverse-times num 0)) ; перший виклик хвостової рекурсії
 
-(display (reverse 132433))
+(display (reverse 132433)) ; перевернути число 132433
 (display "\n")
-(display (reverse 179))
+(display (reverse 179)) ; перевернути число 179
