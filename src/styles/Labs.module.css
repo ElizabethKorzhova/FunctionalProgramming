@@ -1,4 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
 .labContainer {
     text-transform: none;
     text-align: justify;
+    font-family: "PT Serif", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+h2, h3, h4, h5 {
+    margin: 0;
+}
+
+.titles {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+    padding-bottom: 4px;
+}
+
+.labNumber {
+    padding-top: 36px;
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+}
+
+.labNumber::after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 4px;
+    border-radius: 6px;
+    width: 150px;
+    background-color: #e4201c;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.labTheme {
+    padding-top: 24px;
+}
+
+.author {
+    text-align: right;
+    padding-top: 14px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.authorSpan {
+    font-weight: 700;
+}
+
+.contentItemLink:hover {
+    color: #e4201c;
+}
+
+.contentTitle {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.contentItem {
+    padding-bottom: 4px;
+}
+
+.labTargetSpan {
+    display: inline-block;
+    padding-top: 10px;
+    font-weight: 700;
+}
+
+.titlesProgressOfWork {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 6px;
+}
+
+.taskConditionFormulas {
+    display: block;
+    height: 66px;
+    width: 304px;
+    margin: 6px auto;
+}
+
+.blockDiagram {
+    display: block;
+    margin: 30px auto 10px;
+}
+
+.blockDiagramCaption {
+    font-size: 15px;
+    text-align: center;
+}
+
+.labDescription {
+    padding-top: 10px;
+}
+
+.IdeLink {
+    color: #e4201c;
+}
+
+.code {
+    display: block;
+    background-color: #efebeb;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.linkGit:hover {
+    color: #e4201c;
+}
+
+.titlesProgress {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+.resultImage {
+    display: block;
+    width: 1100px;
+    margin: 0 auto 5px;
+}
+
+.conclusion {
+    padding-bottom: 30px;
 }

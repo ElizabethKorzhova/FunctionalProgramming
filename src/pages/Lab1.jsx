@@ -10,57 +10,75 @@ import Result2 from "../img/results/result-1.2.png";
 const Lab1 = () => {
   return (
     <main className={`container ${styles.labContainer}`}>
-      <h2>Лабораторна робота №1</h2>
-      <h3>
+      <h2 className={`${styles.titles} ${styles.labNumber}`}>
+        Лабораторна робота №1
+      </h2>
+      <h3 className={`${styles.titles} ${styles.labTheme}`}>
         "Використання рекурсії для організації повторювальних процесів"
-        <span>12 варіант</span>
       </h3>
-      <h4>
-        <span>Виконала: </span>
+      <div className={`${styles.titles}`}>12 варіант</div>
+      <h4 className={styles.author}>
+        <span className={styles.authorSpan}>Виконала: </span>
         Коржова Єлизавета Валеріївна
       </h4>
-      <div>Зміст</div>
+      <div className={styles.contentTitle}>Зміст</div>
       <ul>
-        <li>
-          <Link to="/">Мета лабораторної роботи</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Мета лабораторної роботи
+          </Link>
         </li>
-        <li>
-          <Link to="/">Умова задачі</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Умова задачі
+          </Link>
         </li>
-        <li>
-          <Link to="/">Структура програми</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Структура програми
+          </Link>
         </li>
-        <li>
-          <Link to="/">
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
             Обгрунтування вибору середовища та мови функціонального
             програмування
           </Link>
         </li>
-        <li>
-          <Link to="/">Код програми з коментарями</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Код програми з коментарями
+          </Link>
         </li>
-        <li>
-          <Link to="/">Посилання на проект з вихідним кодом</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Посилання на проект з вихідним кодом
+          </Link>
         </li>
-        <li>
-          <Link to="/">Скріншоти результатів</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Скріншоти результатів
+          </Link>
         </li>
-        <li>
-          <Link to="/">Аналіз достовірності результатів</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Аналіз достовірності результатів
+          </Link>
         </li>
-        <li>
-          <Link to="/">Висновки</Link>
+        <li className={styles.contentItem}>
+          <Link className={styles.contentItemLink} to="/">
+            Висновки
+          </Link>
         </li>
       </ul>
       <div>
-        <span>Мета - </span>
+        <span className={styles.labTargetSpan}>Мета - </span>
         сформувати декларативне мислення в галузі програмування завдяки
         використанню чистих функцій, рекурсій замість циклів, запобіганню даних,
         що змінюються. Опанувати застосування рекурсивних функцій для
         обчислювальних процесів.
       </div>
       <div>
-        <h5>Умова задачі </h5>
+        <h5 className={styles.titlesProgressOfWork}>Умова задачі</h5>
         Написати процедури, що обчислюють задану функцію за допомогою
         рекурсивного процесу. Продемонструвати застосування звичайної та
         хвостової рекурсії.
@@ -74,7 +92,11 @@ const Lab1 = () => {
           кількості способів розподілу уроків в n класах між трьома вчителями,
           якщо кожен учитель викладатиме у k класах. Визначити глибину рекурсії.
           <span>
-            <img src={Formulas} alt="formulas" />
+            <img
+              className={styles.taskConditionFormulas}
+              src={Formulas}
+              alt="formulas number of placements"
+            />
           </span>
         </li>
         <li>
@@ -88,32 +110,49 @@ const Lab1 = () => {
           результат: 971.
         </li>
       </ol>
-      <h5>Структура задачі</h5>
-      <img src={BlockDiagram1} alt="Block Diagram" />
-      <div>Рис.1 - структура задачі №1.</div>
-      <img src={BlockDiagram2} alt="Block Diagram" />
-      <div>Рис.1 - структура задачі №2.</div>
-      <h5>
+      <h5 className={styles.titlesProgressOfWork}>Структура задачі</h5>
+      <img
+        className={styles.blockDiagram}
+        src={BlockDiagram1}
+        alt="Block Diagram"
+      />
+      <div className={styles.blockDiagramCaption}>
+        Рис.1 - структура задачі №1.
+      </div>
+      <img
+        className={styles.blockDiagram}
+        src={BlockDiagram2}
+        alt="Block Diagram"
+      />
+      <div className={styles.blockDiagramCaption}>
+        Рис.2 - структура задачі №2.
+      </div>
+      <h5 className={styles.titlesProgressOfWork}>
         Обгрунтування вибору середовища та мови функціонального програмування
       </h5>
-      <div>
+      <div className={styles.labDescription}>
         Була обрана мова програмування Sheme, так як вона має легкий, зрозумілий
         синтаксис, який поюснюють на лекціях, практичних, а також рекомендована
         лектором.
       </div>
       <div>
         IDE -{" "}
-        <a href="https://www.jdoodle.com/execute-scheme-online/">
+        <a
+          className={styles.IdeLink}
+          href="https://www.jdoodle.com/execute-scheme-online/"
+        >
           Online CLISP IDE.{" "}
         </a>
         Головною перевагою для вибору данного середовища розробки є те що його
         не потрібно встановлювати. онлайн
       </div>
-      <h5>Код програми з коментарями</h5>
+      <h5 className={styles.titlesProgressOfWork}>
+        Код програми з коментарями
+      </h5>
       <div>
-        <div>Код програми №1</div>
+        <div className={styles.titlesProgress}>Код програми №1</div>
         <pre>
-          <code>
+          <code className={styles.code}>
             {`(define (factorial n) ; Визначаємо функцію factorial
           (define (factorial-times n acc) ; Визначаємо допоміжну функцію factorial-times, для того, щоб використовувати 
           хвоствову рекурсію
@@ -144,9 +183,9 @@ const Lab1 = () => {
         </pre>
       </div>
       <div>
-        <div>Код програми №2</div>
+        <div className={styles.titlesProgress}>Код програми №2</div>
         <pre>
-          <code>
+          <code className={styles.code}>
             {`(define (log10 n) (/ (log n) (log 10))) ; визначення функції для знаходження десяткового логарифму
 
                (define (reverse num) ; визначення функції для перевертання числа
@@ -166,23 +205,33 @@ const Lab1 = () => {
           </code>
         </pre>
       </div>
-      <h5>Посилання на проект з вихідним кодом</h5>
+      <h5 className={styles.titlesProgressOfWork}>
+        Посилання на проект з вихідним кодом
+      </h5>
       <div>
-        <a href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_1_1.txt">
+        <a
+          className={styles.linkGit}
+          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_1_1.txt"
+        >
           Посилання на код програми №1 на віддаленому репозиторію GitHub
         </a>
       </div>
       <div>
-        <a href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_1_2.txt">
+        <a
+          className={styles.linkGit}
+          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_1_2.txt"
+        >
           Посилання на код програми №2 на віддаленому репозиторію GitHub
         </a>
       </div>
-      <h5>Скріншоти результатів</h5>
-      <div>Результат роботи програми №1</div>
-      <img src={Result1} alt="Result" />
-      <div>Результат роботи програми №2</div>
-      <img src={Result2} alt="Result" />
-      <h5>Аналіз достовірності результатів</h5>
+      <h5 className={styles.titlesProgressOfWork}>Скріншоти результатів</h5>
+      <div className={styles.titlesProgress}>Результат роботи програми №1</div>
+      <img className={styles.resultImage} src={Result1} alt="Result" />
+      <div className={styles.titlesProgress}>Результат роботи програми №2</div>
+      <img className={styles.resultImage} src={Result2} alt="Result" />
+      <h5 className={styles.titlesProgressOfWork}>
+        Аналіз достовірності результатів
+      </h5>
       <div>
         Першим завдання було реалізувати формули розміщень та сполучення, задля
         їх написання спочатку було написано програму, яка рахує факторіал числа,
@@ -193,8 +242,8 @@ const Lab1 = () => {
         знаходження довжини числа, було перевернуте число. Результати
         співпадають з очікуваними
       </div>
-      <h5>Висновки</h5>
-      <div>
+      <h5 className={styles.titlesProgressOfWork}>Висновки</h5>
+      <div className={styles.conclusion}>
         В результаті роботи було вирішено два задання за допомогою мови Shema.
         Перша задача була реалізована за допомогою хвостової та звичайної
         рекурсії. Друга задача була реалізовна за допомогою звичайної рекурсії.
