@@ -27,7 +27,7 @@ const Home = () => {
             <div className={styles.studentInfoWrapper}>
               <img
                 src={StudentPhoto}
-                alt="My photo"
+                alt="Me"
                 className={styles.personalityPhoto}
               />
               <div className={styles.studentInfo}>
@@ -42,7 +42,7 @@ const Home = () => {
             <div className={styles.studentInfoWrapper}>
               <img
                 src={TeacherPhoto}
-                alt="Teacher's photo"
+                alt="Teacher"
                 className={styles.personalityPhoto}
               />
               <div className={styles.studentInfo}>
