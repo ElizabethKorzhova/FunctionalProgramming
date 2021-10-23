@@ -47,7 +47,7 @@ const Home = () => {
               />
               <div className={styles.studentInfo}>
                 <div className={styles.studentName}>
-                  Іваницька Анастасія Юріївна
+                  Ніколаєнко Анастасія Юріївна
                 </div>
                 <div className={styles.studentSpan}>
                   Асистент кафедри програмних систем і технологій,
