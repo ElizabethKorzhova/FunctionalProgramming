@@ -84,6 +84,17 @@ const Home = () => {
                 </div>
               </Link>
             </li>
+            <li className={styles.labListItem}>
+              <Link to="/lab3">
+                <div>
+                  <span className={styles.labTitle}>Лабораторна робота 3</span>
+                  <div className={styles.labTheme}>
+                    "Форми lambda та let, вираз присвоєння set! для розв’язання
+                    нелінійних рівнянь та чисельного інтегрування функцій"
+                  </div>
+                </div>
+              </Link>
+            </li>
           </ul>
         </section>
       </main>
