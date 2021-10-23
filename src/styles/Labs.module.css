@@ -105,6 +105,8 @@ h2, h3, h4, h5 {
 .blockDiagramCaption {
     font-size: 15px;
     text-align: center;
+    padding-bottom: 10px;
+    padding-top: 5px;
 }
 
 .labDescription {
@@ -143,4 +145,36 @@ h2, h3, h4, h5 {
 
 .conclusion {
     padding-bottom: 30px;
+}
+
+.checkingResult {
+    display: block;
+    height: 560px;
+    margin: 20px auto 0;
+}
+
+.checkingResult2 {
+    display: block;
+    width: 500px;
+    height: 200px;
+    margin: 10px auto 5px;
+}
+
+.taskConditionFormulas3_1,
+.taskConditionFormulas3_2,
+.taskConditionFormulas3 {
+    display: block;
+    height: 100px;
+    width: 650px;
+    margin: 6px auto;
+}
+
+.taskConditionFormulas3_1 {
+    height: 40px;
+    width: 120px;
+}
+
+.taskConditionFormulas3_2 {
+    height: 100px;
+    width: 140px;
 }

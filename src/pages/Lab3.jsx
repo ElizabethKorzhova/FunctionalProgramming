@@ -7,8 +7,11 @@ import Func1 from "../img/formulas/function-lab3.1.png";
 import Func2 from "../img/formulas/function-lab3.2.png";
 import HIPO1 from "../img/block-diagrams/HIPO_3.1.png";
 import HIPO2 from "../img/block-diagrams/HIPO_3.2.png";
-import Result1 from "../img/results/result-2.1.png";
-import Result2 from "../img/results/result-2.2.png";
+import Result1 from "../img/results/result-3.1.png";
+import Result2 from "../img/results/result-3.2.png";
+import CheckingResults1 from "../img/сhecking-results/сhecking-results-3.1.png";
+import CheckingResults2_1 from "../img/сhecking-results/сhecking-results-3.2.1.png";
+import CheckingResults2_2 from "../img/сhecking-results/сhecking-results-3.2.2.png";
 
 const Lab3 = () => {
   return (
@@ -88,19 +91,21 @@ const Lab3 = () => {
         використовуючи форму let. Написати процедури, що обчислюють інтеграл
         функції за формулами трапецій, Сімпсона (парабол)
         <img
-          className={styles.taskConditionFormulas2}
+          className={styles.taskConditionFormulas3}
           src={Formula1}
           alt="Function of method trapeze"
         />
         <div className={styles.blockDiagramCaption}>
-          Рис.1 - Формула трапецій.
+          Рис.1 - Формула методу трапецій.
         </div>
         <img
-          className={styles.taskConditionFormulas2}
+          className={styles.taskConditionFormulas3}
           src={Formula2}
           alt="Function of method Simpson"
         />
-        <div className={styles.blockDiagramCaption}>Рис.2 - Сімпсона.</div>
+        <div className={styles.blockDiagramCaption}>
+          Рис.2 - Формула методу Сімпсона.
+        </div>
       </div>
       <ol>
         <li>
@@ -110,7 +115,7 @@ const Lab3 = () => {
           інтервалу вибрати самостійно. Порівняти результати розв’язків двома
           методами.
           <img
-            className={styles.taskConditionFormulas2}
+            className={styles.taskConditionFormulas3_1}
             src={Func1}
             alt="Function of task1"
           />
@@ -119,7 +124,7 @@ const Lab3 = () => {
           Написати процедури для обчислити інтеграла за формулами трапецій і
           Сімпсона. Порівняти результати обчислення.
           <img
-            className={styles.taskConditionFormulas2}
+            className={styles.taskConditionFormulas3_2}
             src={Func2}
             alt="Function of task2"
           />
@@ -130,11 +135,11 @@ const Lab3 = () => {
       </h5>
       <img className={styles.blockDiagram} src={HIPO1} alt="HIPO Diagram" />
       <div className={styles.blockDiagramCaption}>
-        Рис.1 - HIPO діаграма задачі №1.
+        Рис.3 - HIPO діаграма задачі №1.
       </div>
       <img className={styles.blockDiagram} src={HIPO2} alt="HIPO Diagram" />
       <div className={styles.blockDiagramCaption}>
-        Рис.2 - HIPO діаграма задачі №2.
+        Рис.4 - HIPO діаграма задачі №2.
       </div>
       <h5 className={styles.titlesProgressOfWork} id="ide">
         Обгрунтування вибору середовища та мови функціонального програмування
@@ -260,7 +265,7 @@ const Lab3 = () => {
       <div>
         <a
           className={styles.linkGit}
-          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_2_1.txt"
+          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_3_1.txt"
         >
           Посилання на код програми №1 на віддаленому репозиторію GitHub
         </a>
@@ -268,7 +273,7 @@ const Lab3 = () => {
       <div>
         <a
           className={styles.linkGit}
-          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_2_2.txt"
+          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_3_2.txt"
         >
           Посилання на код програми №2 на віддаленому репозиторію GitHub
         </a>
@@ -284,15 +289,42 @@ const Lab3 = () => {
         Аналіз достовірності результатів
       </h5>
       <div>
-        Першим завдання було обчислити значення функції у, розвинувши функцію
-        e-x у ряд Тейлора. Аргумент х змінюється від -2 до 2 з кроком 0.5.
-        Визначити похибку. Візьмемо x = -0.5, значення експоненти, за нашої
-        функції дорівнює 0.9744101008850663, а за вбудованою функцією дорівнює
-        0.6065306597126334. Порахуємо похибку 1.1741607686133193e-11. Другим
-        завданням було підрахувати кількість цифр у числі, їх суму та знайти
-        першу і останню цифри числа. Вводимо з клавіатури число 67890425, вивід
-        програми: кількість цифр - 8, сума - 41, перша цифра в числі - 6,
-        остання - 5. Результати співпадають з очікуваними
+        Першим завдання було знайти корені нелінійного рівняння, за допомогою
+        методу простої ітерації та перебором. Було взято відрізок [a, b] - [-1
+        1] та точність 0.00000001. Коренем рівняння за методом простої ітерації
+        0.8241323107196505, а за методом перебору -0.8241323091163072. При
+        заданих а, в та е, знайдений корінь рівняння за методом перебору є
+        ближчим, так як було перевірено значення за допомогою
+        онлайн-кальрулятора (Рис. 5). Другим завданням було написати процедури
+        для обчислення інтеграла за формулами трапецій і Сімпсона, x1 = 0.1, x2
+        = 2. За метом Сімпсона отримали значення визначеного інтегралу
+        1.5182702657386127. Для методу трапецій розбили даний інтеграл на 10000
+        точок, взяли саме таке значення, так як чим на більше точок буде
+        розбиття - тим точніше результат. Отримали 1.2566966718453865. Порівняли
+        отримані результати за допомогою онлайн калькулятора (Рис. 6), реальним
+        значенням визначеного інтегралу є 1.25642566445695, тож результатт
+        отриманий за допомогою методу трапецій є майже таким як реальний.
+        <img
+          src={CheckingResults1}
+          alt="Checking results"
+          className={styles.checkingResult}
+        />
+        <div className={styles.blockDiagramCaption}>
+          Рис. 5 - Вивід онлай-калькулятора для завдання 1.
+        </div>
+        <img
+          src={CheckingResults2_1}
+          alt="Checking results"
+          className={styles.checkingResult2}
+        />
+        <img
+          src={CheckingResults2_2}
+          alt="Checking results"
+          className={styles.resultImage}
+        />
+        <div className={styles.blockDiagramCaption}>
+          Рис. 6 - Вивід онлай-калькулятора для завдання 2.
+        </div>
       </div>
       <h5 className={styles.titlesProgressOfWork} id="сonclusion">
         Висновки
@@ -301,8 +333,8 @@ const Lab3 = () => {
         В результаті роботи було вирішено два задання за допомогою мови Scheme.
         Було намальовано HIPO діаграми для кожного з завдань, проведено анліз
         достовірності результатів, перевірка зазначила що результати данної
-        лабораторної роботи є вірними. Труднощі виникли при вирішені першого
-        завдання, а саме при розкладанні функції в ряд Тейлора.
+        лабораторної роботи є вірними. Труднощі виникли при виведенні формули
+        методу трапецій.
       </div>
     </main>
   );
