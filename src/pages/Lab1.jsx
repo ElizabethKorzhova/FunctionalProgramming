@@ -1,5 +1,4 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
 import styles from "../styles/Labs.module.css";
 import Formulas from "../img/formulas/number-of-placements.png";
 import BlockDiagram1 from "../img/block-diagrams/lab-1.1.png";
@@ -26,55 +25,55 @@ const Lab1 = () => {
       <div className={styles.contentTitle}>Зміст</div>
       <ul>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#target">
+          <a className={styles.contentItemLink} href="#target">
             Мета лабораторної роботи
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#task-condition">
+          <a className={styles.contentItemLink} href="#task-condition">
             Умова задачі
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#program-structure">
+          <a className={styles.contentItemLink} href="#program-structure">
             Структура програми
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#ide">
+          <a className={styles.contentItemLink} href="#ide">
             Обгрунтування вибору середовища та мови функціонального
             програмування
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#code">
+          <a className={styles.contentItemLink} href="#code">
             Код програми з коментарями
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#link-to-github">
+          <a className={styles.contentItemLink} href="#link-to-github">
             Посилання на проект з вихідним кодом
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#results">
+          <a className={styles.contentItemLink} href="#results">
             Скріншоти результатів
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#analysis">
+          <a className={styles.contentItemLink} href="#analysis">
             Аналіз достовірності результатів
-          </Link>
+          </a>
         </li>
         <li className={styles.contentItem}>
-          <Link className={styles.contentItemLink} to="lab1/#сonclusion">
+          <a className={styles.contentItemLink} href="#сonclusion">
             Висновки
-          </Link>
+          </a>
         </li>
       </ul>
       <div>
         <span className={styles.labTargetSpan} id="target">
-          >Мета -{" "}
+          Мета -{" "}
         </span>
         сформувати декларативне мислення в галузі програмування завдяки
         використанню чистих функцій, рекурсій замість циклів, запобіганню даних,
