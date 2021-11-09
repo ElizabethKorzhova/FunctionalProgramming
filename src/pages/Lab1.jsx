@@ -240,7 +240,7 @@ const Lab1 = () => {
       <div>
         <a
           className={styles.linkGit}
-          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_2_2.txt"
+          href="https://github.com/ElizabethKorzhova/FunctionalProgramming/blob/main/labs/lab_1_2.txt"
         >
           Посилання на код програми №2 на віддаленому репозиторію GitHub
         </a>

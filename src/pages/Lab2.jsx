@@ -269,7 +269,7 @@ const Lab2 = () => {
       <div>
         <a
           className={styles.linkGit}
-          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_2_1.txt"
+          href="https://github.com/ElizabethKorzhova/FunctionalProgramming/blob/main/labs/lab_2_1.txt"
         >
           Посилання на код програми №1 на віддаленому репозиторію GitHub
         </a>
@@ -277,7 +277,7 @@ const Lab2 = () => {
       <div>
         <a
           className={styles.linkGit}
-          href="https://github.com/HotSweetie/FunctionalProgramming/blob/main/labs/lab_2_2.txt"
+          href="https://github.com/ElizabethKorzhova/FunctionalProgramming/blob/main/labs/lab_2_2.txt"
         >
           Посилання на код програми №2 на віддаленому репозиторію GitHub
         </a>
