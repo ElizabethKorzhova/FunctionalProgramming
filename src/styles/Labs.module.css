@@ -160,6 +160,12 @@ h2, h3, h4, h5 {
     margin: 10px auto 5px;
 }
 
+.checkingResult4 {
+    display: block;
+    width: 700px;
+    margin: 30px auto 5px;
+}
+
 .taskConditionFormulas3_1,
 .taskConditionFormulas3_2,
 .taskConditionFormulas3 {
