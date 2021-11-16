@@ -1,0 +1,101 @@
+(let ((pi 3.14159265359)) ; визначаємо змінну в яку записуємо значення числа пи
+    (define (dist x) (car x)) ; визначаємо функцію, яка дійстає перший елемент з пари, тобто довжину комплексного числа
+    (define (angle x) (cdr x)) ; визначаємо функцію, яка дійстає другий елемент з пари, тобто кут
+    (define (make-complex r phi) (cons r phi)) ; визначаємо функцію, яка створю пару: довжина комплексного числа та кут
+
+    (define (print-complex x) ; визначаємо функцію, яка зображає комплексне число в тригонометричному вигляді
+        (display (dist x))
+        (display "(cos(")
+        (display (angle x))
+        (if (< (angle x) 0) ; якщо кут вiд`ємний, виводимо зi знаком мiнус
+            (display ") - isin(")
+            (display ") + isin(")
+        )
+        (display (abs (angle x)))
+        (display "))")
+    )
+
+    (define (print-complex-geom x) ; визначаємо функцію, яка зображає комплексне число в геометричному вигляді, тобто переводить з полярних координат у декартові
+        (display (* (dist x) (cos (angle x))))
+        (if (< (sin (angle x)) 0) ; якщо sin кута вiд`ємний, виводимо зi знаком мiнус
+            (display " - i*")
+            (display " + i*")
+        )
+        (display (* (dist x) (abs (sin (angle x)))))
+    )
+
+    (define (print-complex-numbers arr type) ; перебираємо комплекснi числа з масиву та виводимо, в залежностi вiд типу виводу: у полярних координатах чи у декартових
+        (define (print-complex-numbers-times index)
+            (if (< index (length arr))
+                (begin
+                    (if (= type 0)
+                        (print-complex (list-ref arr index))
+                        (print-complex-geom (list-ref arr index))
+                    )
+                    (if (< index (- (length arr) 1))
+                        (display ", ")
+                    )
+                    (print-complex-numbers-times (+ 1 index))
+                )
+            )
+        )
+        (print-complex-numbers-times 0)
+    )
+
+    (define (make-angle-from-zero-to-2pi phi) ; приводимо кут до промiжку [0; 2pi)
+        (let ((_2pi (* 2 pi)))
+            (let ((int (floor->exact (/ (abs phi) _2pi))))
+                (begin
+                    (if (>= phi _2pi)
+                        (set! phi (- phi (* int _2pi)))
+                    )
+                    (if (< phi 0)
+                        (set! phi (+ phi _2pi (* int _2pi)))
+                    )
+                    phi
+                )
+
+            )
+        )
+    )
+
+    (define (is-in-third-part num) ; визначаємо, чи лежить число з кутом phi у третьому квадрантi, тобто чи є кут в промiжку (pi; 3/2pi)
+        (let ((phi (make-angle-from-zero-to-2pi (angle num))))
+            (and (< pi phi) (< phi (* pi (/ 3 2))))
+        )
+
+    )
+
+(define (is-in-third-part-v2 num) ; визначаємо, чи лежить число з кутом phi у третьому квадрантi, тобто, чи є сiнус та косiнус кута меншим за нуль
+        (and (< (cos (angle num)) 0) (< (sin (angle num)) 0))
+    )
+
+    (define (find-complex-number-in-third-part arr) ; перебираємо масив, та визначаємо, якi з чисел лежать у третьому квадрантi
+        (define (fcnitp-times acc-arr index) ; допомiжна функцiя
+            (if (< index (length arr)) ; умова продовження перебору масиву
+                (if (is-in-third-part-v2 (list-ref arr index)) ; умова додавання числа до акумулюючого масиву, тобто, коли воно лежить у третьому квадрантi
+                    (fcnitp-times (append acc-arr (list (list-ref arr index))) (+ 1 index)) ; викликаємо допомiжну функцiю, додавши до акумулюючого масиву число
+                    (fcnitp-times acc-arr (+ 1 index)) ; викликаємо допомiжну функцiю, не додавши до акумулюючого масиву число
+                )
+                acc-arr ; повертаємо акумулюючий масив
+            )
+        )
+        (fcnitp-times (list) 0) ; перший виклик допомiжної функцiї
+    )
+
+    (let ((arr (list (make-complex 2 3.15) (make-complex 8 4) (make-complex 9 3) (make-complex 9 10)))) ; задання масиву комплексних чисел
+        (let ((comp-in-third (find-complex-number-in-third-part arr))) ; визначення тих комплексних чисел, якi лежать у третьому квадратнi
+            (display "Серед комлексний чисел у вигляді\nУ полярних координатах - [")
+            (print-complex-numbers arr 0)
+            (display "]\nГеометрийчний вигляд - [")
+            (print-complex-numbers arr 1)
+            (display "]\nє ")
+            (display (length comp-in-third))
+            (display ", які лежать у 3 квадранті\nУ полярних координатах - [")
+            (print-complex-numbers comp-in-third 0)
+            (display "]\nГеометрийчний вигляд - [")
+            (print-complex-numbers comp-in-third 1)
+            (display "]")
+        )
+    )
+)
