@@ -105,6 +105,17 @@ const Home = () => {
                 </div>
               </Link>
             </li>
+            <li className={styles.labListItem}>
+              <Link to="/lab5">
+                <div>
+                  <span className={styles.labTitle}>Лабораторна робота 5</span>
+                  <div className={styles.labTheme}>
+                    "Обробка раціональних та комплексних чисел мовами
+                    функціонального програмування"
+                  </div>
+                </div>
+              </Link>
+            </li>
           </ul>
         </section>
       </main>

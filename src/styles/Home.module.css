@@ -127,11 +127,11 @@ a {
 }
 
 .labList {
-  padding-top: 150px;
+  padding-top: 130px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 50px;
 }
 
 .labTitle {
