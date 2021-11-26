@@ -1,0 +1,100 @@
+(define (vector-delete vec condition-func) ; визначаємо функцію, яка видаляє елементи зі списку за заданою функцією-умовою, та
+повертає новий вектору
+    (define (count) ; визначаємо функцію, яка підрахує кілький елементів, які підходять під умову
+        (define (loop i counter) ; функція, яка імітує цикл, щоб перебрати елементи вектору
+            (cond ((= i (vector-length vec))
+                  counter)
+                ((condition-func (vector-ref vec i))
+                    (loop (+ i 1) (+ counter 1)))
+                (else (loop (+ i 1) counter))
+            )
+        )
+        (loop 0 0)
+    )
+    (let ((new-vec (if (> (vector-length vec) 0) ; задаємо змінну нового вектору
+            (make-vector (- (vector-length vec) (count))) ; якщо довжину вектору більша за нуль, то створюємо новий вектор,
+            довжини попереднього мінус кількість елементів, які підходять під умову
+            (vector)))) ; інакше повертаємо пустий вектор
+        (define (loop i j) ; функція, яка імітує цикл, що перебирає вектор
+            (cond ((= i (vector-length vec))
+                new-vec) ; зупинитись, коли перебрав, та повернути новий вектор
+                ((condition-func (vector-ref vec i)) ; якщо елемент вектору задовільняє умову
+                    (loop (+ i 1) j)) ; переходимо до наступного
+                ((< j (vector-length new-vec)) ; якщо не задовільняє умову
+                    (vector-set! new-vec j (vector-ref vec i)) ; додаємо до нового вектору цей елемент
+                    (loop (+ i 1) (+ j 1))) ; та переходимо до наступного
+                (else vec) ; якщо щось пішло не так, повернути початковий вектор
+            )
+        )
+        (loop 0 0) ; починаємо перебирати вектор
+    )
+)
+
+(define (combine positive negative take-from-positive) ; функція, яка поєднує два вектори, таким чином, щоб чередувати елементи
+з першого і другого векторів, починаючи з першого, якщо take-from-positive - #t, так з другого інакше
+    (let ((p-len (vector-length positive)) (n-len (vector-length negative))) ; задаємо змінні, в якіх зберігаються довжини обох
+    векторів
+        (let ((combined (make-vector (+ p-len n-len)))) ; створюємо новий вектор, довжина якого дорівнює сумі довжин вхідних
+        векторів
+            (define (loop-c i j k) ; функція, що імітує цикл для перебору елементів обох векторів
+                (if (= k (+ p-len n-len)) ; якщо ми вже заповнили новий вектор елементами
+                    combined ; повернемо його
+                    (begin ; інакше
+                        (if (< j n-len) ; якщо ми не використали всі елементи з другого вектору
+                            (begin
+                                (vector-set! combined k (vector-ref negative j)) ; додамо поточний елемент до вектору
+                                (set! j (+ 1 j)) ; збільшимо відповідні індекси
+                                (set! k (+ 1 k))
+                            )
+                        )
+                        (if (< i p-len) ; якщо ще не використали всі елементи з другого вектору
+                            (begin
+                                (vector-set! combined k (vector-ref positive i)) ; додамо поточний елемент до вектору
+                                (set! i (+ 1 i)) ; збільшимо відповідні індекси
+                                (set! k (+ 1 k))
+                            )
+                        )
+                        (loop-c i j k) ; перейдемо до наступних індексів
+                    )
+                )
+            )
+            (if take-from-positive ; якщо починаємо з додатнього числа
+                (begin ; тоді
+                    (vector-set! combined 0 (vector-ref positive 0)) ; додамо як перший елемент нового вектору перший елемент
+                    з вектору додатніх чисел
+                    (loop-c 1 0 1) ; та почнемо перебирати вектори
+                )
+                (loop-c 0 0 0) ; просто почнемо перебирати вектори
+            )
+        )
+    )
+)
+
+(let ((initial-vector '#(3 5 0 0 -7 0 0 -9 0 4 3 -5 3 2 6 73 -3 -5))) ; задамо початковий вектор
+    (let ((vector-without-zeros (vector-delete initial-vector (lambda (x) (= x 0))))) ; прибиремо з початкового вектору
+    всі нулі
+        (let (
+                 (positive-elements (vector-delete vector-without-zeros (lambda (x) (< x 0)))) ; прибиремо з вектору без
+                 нулів від'ємні числа
+                 (negative-elements (vector-delete vector-without-zeros (lambda (x) (> x 0)))) ; прибиремо з вектору без
+                 нулів додатні числа
+
+            )
+            (display "Вектор до переміни:")
+            (newline)
+            (display initial-vector)
+            (newline)
+            (newline)
+            (display "Вектор без нулів:")
+            (newline)
+            (display vector-without-zeros)
+            (newline)
+            (newline)
+            (display "Вектор після переміни:")
+            (newline)
+            (display (combine positive-elements negative-elements (> (vector-ref initial-vector 0) 0))) ; поєднаємо додатній
+            і від'ємний вектори разом, починаючи з того вектору, елемент якого є початком початкового. Початковий вектор має
+            містити хоча б один елемент
+        )
+    )
+)
