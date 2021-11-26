@@ -122,12 +122,12 @@ a {
   width: 300px;
   text-align: center;
   border: 1px solid #fff;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 22px;
+  padding-bottom: 22px;
 }
 
 .labList {
-  padding-top: 130px;
+  padding-top: 74px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

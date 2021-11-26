@@ -6,6 +6,8 @@ import Lab2 from "./pages/Lab2";
 import Lab3 from "./pages/Lab3";
 import Lab4 from "./pages/Lab4";
 import Lab5 from "./pages/Lab5";
+import Lab6 from "./pages/Lab6";
+import Lab7 from "./pages/Lab7";
 
 function App() {
   return (
@@ -29,6 +31,12 @@ function App() {
           </Route>
           <Route exact path="/lab5">
             <Lab5 />
+          </Route>
+          <Route exact path="/lab6">
+            <Lab6 />
+          </Route>
+          <Route exact path="/lab7">
+            <Lab7 />
           </Route>
         </Switch>
       </BrowserRouter>
