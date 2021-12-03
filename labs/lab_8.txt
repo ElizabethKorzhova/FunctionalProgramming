@@ -1,18 +1,18 @@
-(define (variable? x) (symbol? x))
-(define (same-variable? v1 v2)
+(define (variable? x) (symbol? x)) ; функція, яка перевіряє, чи є змінна символом
+(define (same-variable? v1 v2) ; функція, яка перевіряє, чи є два вирази однією і тою самою змінною
   (and (variable? v1) (variable? v2) (eq? v1 v2)))
-(define (make-sum a1 a2) (list '+ a1 a2))
-(define (make-product m1 m2) (list '* m1 m2))
-(define (sum? x)
+(define (make-sum a1 a2) (list '+ a1 a2)) ; функція, яка додає один символьний вираз до іншого
+(define (make-product m1 m2) (list '* m1 m2)) ; функція, яка множить один символьний вираз на інший
+(define (sum? x) ; функція, яка перевіряє, чи є символьний вираз сумою
   (and (pair? x) (eq? (car x) '+)))
-(define (addend s) (cadr s))
-(define (augend s) (caddr s))
-(define (product? x)
+(define (addend s) (cadr s)) ; функція, яка повертає перший доданок виразу
+(define (augend s) (caddr s)) ; функція, яка повертає останній доданок виразу
+(define (product? x) ; функція, яка перевіряє, чи є вираз добутком
   (and (pair? x) (eq? (car x) '*)))
-(define (multiplier p) (cadr p))
-(define (multiplicand p) (caddr p))
+(define (multiplier p) (cadr p)) ; функція, яка повертає перший множник виразу
+(define (multiplicand p) (caddr p)) ; функція, яка повертає останній множник виразу
 
-(define (deriv exp var)
+(define (deriv exp var) ; функція, яка шукає для символьного виразу похідну за правилами суми та добутку
   (cond ((number? exp) 0)
     ((variable? exp)
      (if (same-variable? exp var) 1 0))
@@ -28,7 +28,7 @@
     (else
      (display "unknown expression type - DERIV" ))))
 
-(define (poly-array-to-symbolic arr)
+(define (poly-array-to-symbolic arr) ; функція, яка приводить поліном заданий масивом його коефіцієнтів до символьного виразу
     (define (pats-t sym-poly i)
         (if (= i (length arr))
             sym-poly
@@ -40,11 +40,11 @@
 
 (define out (open-output-file "/myfiles/poly.txt")) ; відкриваємо порт для запису у файл
 
-(let ((poly (list 3 4 5 3 5 -3 2 -5 -6)))
-    (let ((s_poly (poly-array-to-symbolic poly)))
-        (let ((first_deriv (deriv s_poly 'x)))
-            (let ((second_deriv (deriv first_deriv 'x)))
-                (let ((third_deriv (deriv second_deriv 'x)))
+(let ((poly (list 3 4 5 3 5 -3 2 -5 -6))) ; визначаємо поліном як список коефіцієнтів
+    (let ((s_poly (poly-array-to-symbolic poly))) ; приводимо такий поліном до символьного вигляду
+        (let ((first_deriv (deriv s_poly 'x))) ; шукаємо його першу похідну
+            (let ((second_deriv (deriv first_deriv 'x))) ; шукаємо другу першу похідну
+                (let ((third_deriv (deriv second_deriv 'x))) ; шукаємо третю першу похідну
                     (display s_poly out)
                     (display "\n\n" out)
                     (display first_deriv out)
@@ -53,10 +53,9 @@
                     (display "\n\n" out)
                     (display third_deriv out)
                     (display "\n\n" out)
-                    (close-output-port out)
+                    (close-output-port out) ; закриваємо порт для запису у файл
                 )
             )
         )
-
     )
 )
